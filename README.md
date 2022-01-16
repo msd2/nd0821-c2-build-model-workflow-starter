@@ -7,9 +7,9 @@ This is a Udacity MLops nanodegree project which pulls data hosted on the udacit
 The inference artifact predicts prices for airbnb lettings in New York City using a random forest model.
 
 
-## Link to project
+## Link to weights and biases project
 
-https://github.com/msd2/nd0821-c2-build-model-workflow-starter
+https://wandb.ai/mdunford/nyc_airbnb/
 
 ## License
 
