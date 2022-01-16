@@ -32,6 +32,8 @@ def go(config: DictConfig):
     steps_par = config['main']['steps']
     active_steps = steps_par.split(",") if steps_par != "all" else _steps
 
+    root_path = hydra.utils.get_original_cwd()
+
     # Move to a temporary directory
     with tempfile.TemporaryDirectory() as tmp_dir:
 
@@ -49,9 +51,18 @@ def go(config: DictConfig):
             )
 
         if "basic_cleaning" in active_steps:
-            ##################
-            # Implement here #
-            ##################
+            _ = mlflow.run(
+                os.path.join(root_path, 'basic_cleaning'),
+                "main",
+                parameters={
+                    "input_artifact": "sample.csv:latest",
+                    "output_artifact": config["basic_cleaning"]["output_artifact"],
+                    "output_type": config["basic_cleaning"]["output_type"],
+                    "output_description": config["basic_cleaning"]["output_description"],
+                    "min_price": config['etl']['min_price'],
+                    "max_price": config['etl']['max_price']
+                },
+            )
             pass
 
         if "data_check" in active_steps:
