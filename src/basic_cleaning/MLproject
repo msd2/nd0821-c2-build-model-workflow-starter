@@ -6,19 +6,19 @@ entry_points:
     parameters:
 
       input_artifact:
-        description: Raw data for cleaning
+        description: The artifact to use for cleaning
         type: string
 
       output_artifact:
-        description: cleaned_data.csv
+        description: Cleaned dataset
         type: string
 
       output_type:
-        description: cleaned_data
+        description: The file type of the output artifact
         type: string
 
       output_description:
-        description: Cleaned raw data
+        description: A short description of the output artifact
         type: string
 
       min_price:
@@ -31,4 +31,4 @@ entry_points:
 
 
     command: >-
-        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_ndescription {output_ndescription}  --min_price {min_price}  --max_price {max_price} 
+        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price} 

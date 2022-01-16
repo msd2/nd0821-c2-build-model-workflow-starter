@@ -52,7 +52,7 @@ def go(config: DictConfig):
 
         if "basic_cleaning" in active_steps:
             _ = mlflow.run(
-                os.path.join(root_path, 'basic_cleaning'),
+                os.path.join(root_path, 'src/basic_cleaning'),
                 "main",
                 parameters={
                     "input_artifact": "sample.csv:latest",
